@@ -1,0 +1,100 @@
+body {
+  font-family: Tahoma, Verdana, sans-serif;
+}
+#title {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.gridContainer {
+  display: grid;
+  grid-auto-flow: column; 
+  justify-content: center; 
+  align-content: center;    
+}
+.playerItem {
+  border: 1px solid black;
+  width: 224px;
+  height: 224px;
+  text-align: center;
+}
+.userInterfaceItem {
+  display: grid;
+  justify-content: center; 
+  width: 150px;
+  height: 224px;
+  text-align: center;
+}
+#score {
+  font-size: 20px;
+}
+#UI[data-countdown='Rock...'], #UI[data-countdown='Paper...'], #UI[data-countdown='Scissors...']{
+  animation-name: zoom;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+#UI[data-countdown='Shoot!']{
+  animation-name: zoomOnce;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in;
+  font-size: 20px;
+}
+@keyframes zoom {
+  0% {font-size: 12px;}
+  35% {font-size: 20px;}
+  100% {font-size: 20px;}
+}
+@keyframes zoomOnce {
+  0% {font-size: 12px;}
+  35% {font-size: 20px;}
+  100% {font-size: 20px;}
+}
+@keyframes waveUp {
+  from {left: 49.5%;}
+  to {left: 50.5%;}
+}
+#outcome {
+  position: absolute; 
+  left: 50%; 
+  transform: translate(-50%, 0%); 
+  animation-name: waveUp;
+  animation-duration: 0.4s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+.computerItem {
+  border: 1px solid black;
+  width: 224px;
+  height: 224px;
+  text-align: center;
+}
+#computerImg[data-pick='Computer']::after {
+  font-size: 150px;
+  line-height: 224px;
+  content: '\1F916';
+}
+#computerImg[data-pick='Rock']::before {
+  font-size: 150px;
+  line-height: 224px;
+  content: '\1F5FF';
+}
+#computerImg[data-pick='Paper']::before {
+  font-size: 150px;
+  line-height: 224px;
+  content: '\1F9FB';
+}
+#computerImg[data-pick='Scissors']::before {
+  font-size: 150px;
+  line-height: 224px;
+  content: '\2702';
+}
+.odometer.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  -webkit-transition-duration: 1s !important;
+  -moz-transition-duration: 1s !important;
+  -ms-transition-duration: 1s !important;
+  -o-transition-duration: 1s !important;
+  transition-duration: 1s !important
+}
